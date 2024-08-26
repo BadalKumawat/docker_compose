@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - "3344:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: bhai
+      MYSQL_PASSWORD: 1234567890
+
+  wordpress:
+    image: wordpress
+    ports:
+      - "4444:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: bhai
+      WORDPRESS_DB_PASSWORD: 1234567890
+      WORDPRESS_DB_NAME: wordpress
